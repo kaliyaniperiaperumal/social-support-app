@@ -1,6 +1,6 @@
 "use client"
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 import { TranslationProvider } from '@/components/TranslationProvider';
 import { I18nHydrationGate } from "@/components/I18nHydrationGate";
 import { ReduxProvider } from "@/components/ReduxProvider";

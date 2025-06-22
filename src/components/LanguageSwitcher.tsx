@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import i18n from '@/app/i18n/config'; 
+import i18n from '@/i18n/config'; 
 
 const LanguageSwitcher = () => {
   const router = useRouter();

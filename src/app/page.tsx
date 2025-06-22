@@ -2,7 +2,7 @@
 
 import FormWizard from '@/components/FormWizard';
 import Header from '@/components/Header';
-import './page.css';
+import '@/styles/page.css';
 
 export default function Home() {
 
