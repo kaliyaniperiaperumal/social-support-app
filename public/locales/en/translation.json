@@ -1,5 +1,6 @@
 {
   "title": "Social Support App",
+  "mainSectionMessage": "Please fill out the form below to apply for social support.",
   "tabs": {
     "personalTab": "Personal Info",
     "familFinanceTab": "Family & Finance",
@@ -50,5 +51,13 @@
     "own": "Own",
     "livingWithFamily": "Living with Family",
     "homeless": "Homeless"
-  }
+  },
+  "situationInfo": {
+    "title": "Situation Descriptions",
+    "situation": "Current Financial Situation",
+    "employment": "Employment Circumstances",
+    "reason": "Reason for Applying",
+    "helpMeWrite": "Help Me Write"
+  },
+  "formSuccessMessage": "Form submitted successfully"
 }

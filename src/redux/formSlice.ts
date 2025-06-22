@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface FormState {
   step: number;
   data: Record<string, unknown>;
+  showToast: boolean;
 }
 
 const initialState: FormState = {
   step: 1,
-  data: {}
+  data: {},
+  showToast: false
 };
 
 export const formSlice = createSlice({
@@ -20,9 +22,10 @@ export const formSlice = createSlice({
     saveData: (state, action: PayloadAction<Record<string, unknown>>) => {
       state.data = { ...state.data, ...action.payload };
     },
-    resetForm: () => initialState
+    resetForm: () => initialState,
+    setToaster: (state, action: PayloadAction<boolean>) => { state.showToast = action.payload}
   },
 });
 
-export const { nextStep, prevStep, setStep, saveData, resetForm } = formSlice.actions;
+export const { nextStep, prevStep, setStep, saveData, resetForm, setToaster } = formSlice.actions;
 export default formSlice.reducer;

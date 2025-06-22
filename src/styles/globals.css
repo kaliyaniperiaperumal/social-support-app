@@ -25,22 +25,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer base {
-  /* Default LTR */
-  input[type='date'] {
-    direction: ltr !important;
-    text-align: left !important;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  /* RTL override */
-  html[dir='rtl'] input[type='date'] {
-    direction: rtl !important;
-    text-align: right !important;
-  }
-
-  html[dir='rtl'] input[type='date']::-webkit-calendar-picker-indicator {
-    transform: scaleX(-1);
-  }
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
 .input {
@@ -51,8 +42,8 @@ body {
   @apply block w-full p-2 border border-gray-300 rounded-md resize-none min-h-[100px] focus:outline-none focus:ring focus:ring-blue-200;
 }
 .btn-primary {
-  @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300;
+  @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer;
 }
 .btn-secondary {
-  @apply bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400;
+  @apply bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 cursor-pointer;
 }
