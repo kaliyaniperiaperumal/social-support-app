@@ -1,22 +1,37 @@
 "use client";
 import { Controller, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { saveData } from '@/redux/formSlice';
 import { useTranslation } from 'react-i18next';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaRegCalendarAlt } from 'react-icons/fa';
+import { useEffect } from 'react';
+import { RootState } from '@/redux/store';
 
 type Props = { onNext: () => void };
 
 const PersonalInfo = ({ onNext }: Props) => {
   const { t, i18n } = useTranslation();
-  const { register, handleSubmit, formState: { errors }, control } = useForm();
+  const { register, handleSubmit, formState: { errors }, control, reset } = useForm();
   const dispatch = useDispatch();
   const isRTL = i18n.language === 'ar';
+  const formData = useSelector((state: RootState) => state.form.data);
+
+  useEffect(() => {
+    if (formData) {
+      reset({
+        ...formData,
+        dob: formData.dob ? new Date((formData.dob) as Date) : null,
+      });
+    }
+  }, [formData, reset]);
 
   const onSubmit = (data: Record<string, unknown>) => {
-    dispatch(saveData(data));
+    dispatch(saveData({
+      ...data,
+      dob: data.dob ? ((data.dob) as Date).toISOString() : null,
+    }));
     onNext();
   };
 
@@ -29,9 +44,6 @@ const PersonalInfo = ({ onNext }: Props) => {
 
       <input {...register("nationalId", { required: true })} placeholder={t("personalInfo.nationalId")} className="input" />
       {errors.nationalId && <p className="text-red-500 text-sm">{t("personalInfo.nationalId")} {t("formErrorMessage")}</p>}
-      
-      {/* <input {...register("dob", { required: true })} type="date" placeholder={t("personalInfo.dob")} className="input" />
-      {errors.dob && <p className="text-red-500 text-sm">{t("personalInfo.dob")} {t("formErrorMessage")}</p>} */}
 
       <div className='relative'>
         <Controller
@@ -83,7 +95,7 @@ const PersonalInfo = ({ onNext }: Props) => {
         required: t("personalInfo.emailRequired"),
         pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: t("personalInfo.emailInvalid") }
       })} placeholder={t("personalInfo.email")} className="input" />
-      {errors.email && <p className="text-red-500 text-sm">{errors?.email?.message}</p>}
+      {errors.email && typeof errors.email.message === 'string' && <p className="text-red-500 text-sm">{errors?.email?.message}</p>}
 
       <button type="submit" className="btn-primary mt-4">{t("buttons.next")}</button>
     </form>

@@ -30,5 +30,25 @@
     "submit": "Submit",
     "accept": "Accept",
     "close": "Close"
+  },
+  "familyAndFinanceInfo": {
+    "title": "Family & Financial Info",
+    "maritalStatus": "Marital Status",
+    "dependents": "Dependents",
+    "employmentStatus": "Employment Status",
+    "monthlyIncome": "Monthly Income",
+    "housingStatus": "Housing Status",
+    "single": "Single",
+    "married": "Married",
+    "divorced": "Divorced",
+    "widowed": "Widowed",
+    "employed": "Employed",
+    "unemployed": "Unemployed",
+    "selfEmployed": "Self-employed",
+    "retired": "Retired",
+    "rent": "Rent",
+    "own": "Own",
+    "livingWithFamily": "Living with Family",
+    "homeless": "Homeless"
   }
 }
