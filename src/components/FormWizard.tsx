@@ -6,6 +6,7 @@ import { RootState } from '@/redux/store';
 import PersonalInfo from './PersonalInfo';
 import { nextStep, prevStep } from '@/redux/formSlice';
 import FamilyAndFinance from './FamilyAndFinance';
+import Situation from './Situation';
 
 const FormWizard = () => {
   const step = useSelector((state: RootState) => state.form.step);
@@ -19,7 +20,7 @@ const FormWizard = () => {
       <ProgressBar step={step} />
       {step === 1 && <PersonalInfo onNext={handleNext} />}
       {step === 2 && <FamilyAndFinance onNext={handleNext} onBack={handlePrev} />}
-      {/* {step === 3 && <Step3 onBack={handlePrev} />} */}
+      {step === 3 && <Situation onBack={handlePrev} />}
     </div>
   );
 };

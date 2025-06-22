@@ -1,5 +1,6 @@
 {
   "title": "طلب الدعم الاجتماعي",
+  "mainSectionMessage": "يرجى تعبئة النموذج أدناه للتقدم بطلب الدعم الاجتماعي.",
   "tabs": {
     "personalTab": "المعلومات الشخصية",
     "familFinanceTab": "الأسرة والمالية",
@@ -50,5 +51,13 @@
     "own": "ملك",
     "livingWithFamily": "يعيش مع الأسرة",
     "homeless": "بلا مأوى"
-  }
+  },
+  "situationInfo": {
+    "title": "الوصف العام للحالة",
+    "situation": "الوضع المالي الحالي",
+    "employment": "الظروف الوظيفية",
+    "reason": "سبب التقديم",
+    "helpMeWrite": "ساعدني في الكتابة"
+  },
+  "formSuccessMessage": "تم إرسال النموذج بنجاح"
 }

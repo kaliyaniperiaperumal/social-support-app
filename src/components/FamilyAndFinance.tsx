@@ -1,15 +1,26 @@
 "use client";
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { saveData } from '@/redux/formSlice';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+import { RootState } from '@/redux/store';
 
 type Props = { onNext: () => void; onBack: () => void };
 
 const FamilyAndFinance = ({ onNext, onBack }: Props) => {
   const { t } = useTranslation();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const dispatch = useDispatch();
+  const formData = useSelector((state: RootState) => state.form.data);
+
+  useEffect(() => {
+      if (formData) {
+        reset({
+          ...formData,
+        });
+      }
+    }, [formData, reset]);
 
   const onSubmit = (data: Record<string, unknown>) => {
     dispatch(saveData(data));
