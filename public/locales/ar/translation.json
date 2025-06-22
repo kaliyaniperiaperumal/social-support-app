@@ -1,3 +1,34 @@
 {
-  "title": "طلب الدعم الاجتماعي"
+  "title": "طلب الدعم الاجتماعي",
+  "tabs": {
+    "personalTab": "المعلومات الشخصية",
+    "familFinanceTab": "الأسرة والمالية",
+    "situationTab": "الحالة"
+  },
+  "personalInfo": {
+    "title": "المعلومات الشخصية",
+    "name": "الاسم",
+    "nationalId": "رقم الهوية",
+    "dob": "تاريخ الميلاد",
+    "gender": "الجنس",
+    "address": "العنوان",
+    "city": "المدينة",
+    "state": "الولاية",
+    "country": "الدولة",
+    "phone": "رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "male": "ذكر",
+    "female": "أنثى",
+    "other": "آخر",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "عنوان البريد الإلكتروني غير صالح"
+  },
+  "formErrorMessage": "مطلوب",
+  "buttons": {
+    "next": "التالي",
+    "back": "السابق",
+    "submit": "إرسال",
+    "accept": "موافقة",
+    "close": "إغلاق"
+  }
 }

@@ -15,7 +15,7 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="flex justify-end mb-4">
+    <div className="flex justify-end">
       <select
         onChange={(e) => changeLanguage(e.target.value)}
         className="border border-gray-300 rounded px-3 py-2"
