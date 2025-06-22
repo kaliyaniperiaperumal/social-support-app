@@ -30,5 +30,25 @@
     "submit": "إرسال",
     "accept": "موافقة",
     "close": "إغلاق"
+  },
+  "familyAndFinanceInfo": {
+    "title": "معلومات الأسرة والمالية",
+    "maritalStatus": "الحالة الاجتماعية",
+    "dependents": "المعالون",
+    "employmentStatus": "حالة التوظيف",
+    "monthlyIncome": "الدخل الشهري",
+    "housingStatus": "حالة السكن",
+    "single": "أعزب",
+    "married": "متزوج",
+    "divorced": "مطلق",
+    "widowed": "أرمل",
+    "employed": "موظف",
+    "unemployed": "عاطل",
+    "selfEmployed": "صاحب عمل",
+    "retired": "متقاعد",
+    "rent": "إيجار",
+    "own": "ملك",
+    "livingWithFamily": "يعيش مع الأسرة",
+    "homeless": "بلا مأوى"
   }
 }
