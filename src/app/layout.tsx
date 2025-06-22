@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TranslationProvider } from '@/components/TranslationProvider';
 import { I18nHydrationGate } from "@/components/I18nHydrationGate";
+import { ReduxProvider } from "@/components/ReduxProvider";
 
 
 const geistSans = Geist({
@@ -25,11 +26,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TranslationProvider>
-          <I18nHydrationGate>
-            {children}
-          </I18nHydrationGate>
-        </TranslationProvider>
+        <ReduxProvider>
+          <TranslationProvider>
+            <I18nHydrationGate>
+              {children}
+            </I18nHydrationGate>
+          </TranslationProvider>
+        </ReduxProvider>
       </body>
     </html>
   );
