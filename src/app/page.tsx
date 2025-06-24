@@ -14,7 +14,7 @@ export default function Home() {
   const { t } = useTranslation();
   const showToast = useSelector((state: RootState) => state.form.showToast);
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900">
+    <div className="min-h-screen bg-background text-header">
       <Header/>
       <main className="pt-24 p-6">
         <h1 className="text-2xl font-bold mb-4">{t("mainSectionMessage")}</h1>

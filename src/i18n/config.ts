@@ -8,7 +8,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'ar',
+    fallbackLng: 'en',
     supportedLngs: ['en', 'ar'],
     ns: ['translation'],
     defaultNS: 'translation',
@@ -16,9 +16,9 @@ i18n
       escapeValue: false,
     },
     detection: {
-      // order: ['cookie', 'navigator', 'htmlTag'],
-      // caches: ['cookie'],
-      order: ['htmlTag']
+      order: ['cookie', 'htmlTag', 'navigator'],
+      lookupCookie: 'NEXT_LOCALE',
+      caches: ['cookie'],
     },
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
