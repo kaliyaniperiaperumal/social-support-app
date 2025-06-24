@@ -6,6 +6,12 @@ import { useEffect, useState } from "react";
 const LanguageSwitcher = () => {
   const router = useRouter();
   const [selectedLang, setSelectedLang] = useState("en");
+  const [open, setOpen] = useState(false);
+
+  const languages = [
+    { code: 'en', label: 'English', flag: '🇺🇸' },
+    { code: 'ar', label: 'العربية', flag: '🇸🇦' },
+  ];
 
   useEffect(() => {
     const cookieLang = document.cookie
@@ -34,16 +40,33 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="flex justify-end">
-      <select
-        onChange={(e) => changeLanguage(e.target.value)}
-        value={selectedLang}
-        className="border border-gray-300 rounded px-3 py-2"
-        aria-label="Select language"
+    <div className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-2 border border-black px-4 py-2 rounded-md text-sm"
       >
-        <option value="en" title="Switch to English">🇺🇸 English</option>
-        <option value="ar" title="التبديل إلى اللغة العربية">🇸🇦 العربية</option>
-      </select>
+        {languages.find(l => l.code === selectedLang)?.flag}
+        <span className="hidden sm:inline">
+          {languages.find(l => l.code === selectedLang)?.label}
+        </span>
+      </button>
+      {open && (
+        <div className="absolute bg-white border rounded mt-1 w-full z-10 shadow-md">
+          {languages.map((lang) => (
+            <button
+              key={lang.code}
+              onClick={() => {
+                changeLanguage(lang.code);
+                setOpen(false);
+              }}
+              className="w-full px-3 py-2 text-left hover:bg-gray-100 flex items-center"
+            >
+              {lang.flag}
+              <span className="hidden sm:inline ml-2">{lang.label}</span>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

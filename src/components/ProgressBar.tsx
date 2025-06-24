@@ -12,7 +12,11 @@ const ProgressBar = ({ step }: Props) => {
     <div className="flex justify-between gap-2 mb-4">
       {steps.map((label, index) => (
         <div key={index} className="flex-1 text-center">
-          <div className={`py-2 px-4 rounded-full ${step === index + 1 ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}>
+          <div
+            className={`py-2 px-4 rounded-full whitespace-nowrap overflow-hidden text-ellipsis ${
+              step === index + 1 ? 'bg-blue-600 text-white' : 'bg-gray-200'
+            }`}
+          >
             {t(label)}
           </div>
         </div>

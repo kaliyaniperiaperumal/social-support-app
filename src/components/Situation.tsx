@@ -11,7 +11,7 @@ import FullPageLoader from './FullPageLoader';
 type Props = { onBack: () => void };
 
 const Situation = ({ onBack }: Props) => {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, getValues } = useForm();
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [modalData, setModalData] = useState<{ field: string, content: string } | null>(null);
@@ -29,7 +29,8 @@ const Situation = ({ onBack }: Props) => {
 
   const handleHelp = async (field: string) => {
     setShowLoader(true);
-    const prompt = "Help me describe: " + field;
+    const currentValue = getValues(field);
+    const prompt = "Help me describe: " + currentValue;
     const suggestion = await generateText(prompt);
     if (suggestion) {
       setModalData({ field, content: suggestion });

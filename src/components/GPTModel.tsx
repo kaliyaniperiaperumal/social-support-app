@@ -39,7 +39,6 @@ const GPTModal = ({ content, onAccept, onClose }: Props) => {
         ) : (
           <p className="mb-4 whitespace-pre-wrap">{editedContent}</p>
         )}
-        {/* <p className="mb-4">{content}</p> */}
         <div className="flex gap-2">
           {!isEditing && (
             <button onClick={() => setIsEditing(true)} className="btn-secondary">
